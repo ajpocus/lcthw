@@ -3,10 +3,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <assert.h>
 #include "ex19.h"
 
 int Monster_attack(void *self, int damage)
 {
+	assert(self != NULL);
+	
 	Monster *monster = self;
 	
 	printf("You attack %s!\n", monster->_(description));
@@ -23,6 +26,8 @@ int Monster_attack(void *self, int damage)
 
 int Monster_init(void *self)
 {
+	assert(self != NULL);
+	
 	Monster *monster = self;
 	monster->hit_points = 10;
 	return 1;
